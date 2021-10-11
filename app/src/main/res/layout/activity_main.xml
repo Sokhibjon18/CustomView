@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:id="@+id/algorithm_spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/linear1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spaceBetweenViews"
+        android:background="@color/gray"
+        app:layout_constraintBottom_toTopOf="@id/algorithm_spinner2"
+        app:layout_constraintTop_toBottomOf="@id/algorithm_spinner1"
+        tools:viewBindingIgnore="true">
+
+        <uz.triples.smartstaffsolution.PaintImage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/algorithm_spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaceBetweenViews"
+        app:layout_constraintBottom_toTopOf="@id/linear2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear1" />
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spaceBetweenViews"
+        android:background="@color/gray"
+        app:layout_constraintBottom_toTopOf="@id/linear3"
+        app:layout_constraintTop_toBottomOf="@id/algorithm_spinner2"
+        tools:viewBindingIgnore="true">
+
+        <uz.triples.smartstaffsolution.PaintImage
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/colors_collection_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:showDividers="middle"
+        app:layout_constraintTop_toBottomOf="@id/linear2"
+        app:layout_constraintBottom_toTopOf="@id/linear3"
+        android:padding="4dp"
+        android:background="@color/darkGray">
+
+        <ImageView
+            android:id="@+id/red_color_img"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:elevation="4dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/green_color_img"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_green_light"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/white_color_img"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/blue_color_img"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@android:color/holo_blue_light"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/black_color_img"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@android:color/black"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaceBetweenViews"
+        android:background="@color/gray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/colors_collection_ll"
+        tools:viewBindingIgnore="true">
+
+
+        <EditText
+            android:id="@+id/width_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="512" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X" />
+
+        <EditText
+            android:id="@+id/height_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="512" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/generate_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spaceBetweenViews"
+        android:text="generate"
+        app:layout_constraintTop_toTopOf="@id/linear3"
+        app:layout_constraintBottom_toBottomOf="@id/linear3"
+        app:layout_constraintStart_toEndOf="@id/linear3" />
+
+    <SeekBar
+        android:id="@+id/speed_seek_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="100"
+        app:layout_constraintBottom_toBottomOf="@id/generate_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/generate_btn"
+        app:layout_constraintTop_toBottomOf="@id/tv" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Speed"
+        app:layout_constraintBottom_toTopOf="@id/speed_seek_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/generate_btn"
+        app:layout_constraintTop_toTopOf="@id/generate_btn"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
